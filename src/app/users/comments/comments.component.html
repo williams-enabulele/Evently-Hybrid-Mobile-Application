@@ -1,0 +1,39 @@
+<ion-header translucent="true" (click)="dismiss()" class="ion-no-border">
+ 
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-align-self-end">Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="no-padding md" style="--offset-top: 0px; --offset-bottom: 0px">
+  <ion-grid class="ion-no-padding md">
+    <ion-row class="md">
+      <ion-col size="12" class="md" style="flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+          width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+          max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+        ">
+        <ion-list lines="none" class="ion-padding md list-md list-lines-none list-md-lines-none" lines="none">
+          <ion-list-header class="md">
+            <span class="span-small ion-margin-top"> 4 Comments</span>
+          </ion-list-header>
+          <ion-item class=" box-shadow ion-margin-top item  md in-list ion-focusable item-label">
+            <ion-avatar slot="start" class="md">
+              <img src="assets/imgs/avatar/16.jpg" />
+            </ion-avatar>
+            <ion-label class="sc-ion-label-md-h sc-ion-label-md-s md">
+              <h3 class="text-size-xs">Erica Romaguera</h3>
+              <h3 class="text-size-sm">18 August 2018 at 12:20pm</h3>
+              <p class="text-size-p ion-text-wrap ion-padding-top">
+                If you could have any kind of pet, what would you choose?
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

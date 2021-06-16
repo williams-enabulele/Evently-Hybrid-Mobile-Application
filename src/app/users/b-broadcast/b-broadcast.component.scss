@@ -1,0 +1,52 @@
+/* ion-content {
+    --background: #fafafa;
+
+    
+    ion-card {
+        width: 100%;
+        border-radius: 14px;
+        box-shadow: none;
+        background: rgba(255,255,255,.8);
+    }
+}
+
+
+ion-content{
+    ion-item-divider{
+      background: #eee;
+    }
+  } */
+
+
+  ion-content{
+    --padding-bottom: 5px;
+    --padding-end: 5px;
+    --padding-start: 5px;
+    --padding-top: 5px;
+
+    ion-card{
+        margin: 5px;
+        padding: 10px;
+        text-transform: capitalize;
+        
+
+        
+        ion-card-content{
+            padding:0;   
+            
+            ion-col{
+              
+                &:first-child{
+                    text-align: left;
+                }
+                &:last-child{
+                    text-align: right;
+                }
+           }
+           ion-button{
+               margin-left: 0;
+               margin-right: 0;
+           }
+        }
+    }
+}

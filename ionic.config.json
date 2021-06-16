@@ -1,0 +1,7 @@
+{
+  "name": "evently",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

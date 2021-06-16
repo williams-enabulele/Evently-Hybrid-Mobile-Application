@@ -1,0 +1,20 @@
+
+
+<ion-content [fullscreen]=true class="ion-no-padding"  >
+  <div class="main-container" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')'}">
+    <div class="background-filter">
+    
+      <div class="actions" [formGroup]="forgotForm">
+        <ion-text>Please enter in registerd email, an email will be sent with token</ion-text>
+        <ion-item>
+          <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <div class="bottom-section">
+          <ion-button class="signup-bt" (click)="checkMail()"  [disabled]="forgotForm.invalid" expand="block" >Submit</ion-button>
+        </div>
+        <p class="ion-padding"><a routerLink="/login">Go back</a> </p> 
+      </div>
+       
+      </div>
+    </div>
+</ion-content>

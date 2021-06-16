@@ -1,0 +1,29 @@
+
+
+<ion-content [fullscreen]=true class="ion-no-padding" [scrollY]="isAllowScroll" >
+  <div class="main-container" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')'}">
+    <div class="background-filter">
+      <ion-text class="ion-padding" style="color: white">
+        <h1>Login</h1>
+        <p style="color: white">Hello {{firstname}}</p>
+      </ion-text>
+      <div class="actions" [formGroup]="loginForm">
+        <ion-item>
+          <!-- <ion-label position="floating">Mat# | StaffID</ion-label> -->
+          <ion-input type="text" formControlName="username" placeholder="Email Mat# | Staff ID"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+         <!-- <ion-label position="floating">Password</ion-label> -->
+          <ion-input type="password" formControlName="password" placeholder="Enter Password"></ion-input>
+        </ion-item><br>
+        <div class="bottom-section">
+          <ion-button class="signup-bt" (click)="onSubmit()"  [disabled]="loginForm.invalid" expand="block" >Login</ion-button>
+          <p class="login">Don't have an account? <a routerLink="/register">Register</a></p>
+          <p class="login">Forgot Password ? <a routerLink="/forgot">Reset Password</a></p>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+</ion-content>

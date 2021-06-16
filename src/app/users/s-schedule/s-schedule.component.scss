@@ -1,0 +1,18 @@
+ion-card-content{
+    padding:0;   
+    
+    ion-col{
+      
+        &:first-child{
+            text-align: left;
+        }
+        &:last-child{
+            text-align: right;
+        }
+   }
+   ion-button{
+       margin-left: 0;
+       margin-right: 0;
+   }
+}
+

@@ -1,0 +1,19 @@
+
+.action{
+
+    ion-item {
+        --border-width:0;
+        --inner-border-width:0;
+        --highlight-color-focused:none;
+        --highlight-background: unset;
+        margin-bottom: 15px;
+
+        ion-input {
+            width: 100%;
+            border:  none;
+            height: 45px;
+            font-size: 14px;
+        }
+    }
+}
+

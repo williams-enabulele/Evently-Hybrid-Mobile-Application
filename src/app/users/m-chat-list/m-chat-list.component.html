@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Chat List
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+  </ion-toolbar>
+</ion-header>
+<ion-content style="background-color: #fafafa;">
+
+  <ion-text color="primary" *ngIf="recentChats !== []">
+    <h1 style="padding-left: 15px;" class="ion-text-left">Recent Conversations</h1>
+  </ion-text>
+  <ion-list class="margin-bottom ion-no-padding" color="transparent" *ngIf="recentChats!==null">
+    <ion-item *ngFor="let data of recentChats"  class="ion-activatable" [routerLink]="['/chats',data.id]" >
+      <ngx-avatar slot="start" *ngIf="null == data.img_url" class="img" name="{{data.fullname}}"></ngx-avatar>
+      <ion-avatar slot="start" *ngIf="null !== data.img_url">
+        <img [src]="data.img_url" />
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h2 class="text-height">
+          <strong>{{ data.fullname }}</strong>
+          
+        </h2>
+        <p class="text-height">{{ data.username}}</p>
+        <!-- <p *ngIf="messages[i]['toUser'] == data.uid" class="text-height">{{messages[i]['message']}}</p> -->
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-list>
+
+  <ion-text color="primary">
+    <h1 style="padding-left: 15px;" class="ion-text-left">Followers</h1>
+  </ion-text>
+
+  <ion-list class="margin-bottom ion-no-padding" color="transparent" >
+    <ion-item *ngFor="let data of list, let i = index" (click)="addRecent(data.uid)" class="ion-activatable" >
+      <ngx-avatar slot="start" *ngIf="null == data.img_url" class="img" name="{{data.fullname}}"></ngx-avatar>
+      <ion-avatar slot="start" *ngIf="null !== data.img_url">
+        <img [src]="data.img_url" />
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h2 class="text-height">
+          <strong>{{ data.fullname }}</strong>
+          
+        </h2>
+        <p class="text-height">{{ data.username}}</p>
+        <!-- <p *ngIf="messages[i]['toUser'] == data.uid" class="text-height">{{messages[i]['message']}}</p> -->
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="secondary" (click)="chatListModal()">
+    <ion-icon color="light" name="chatbox-ellipses"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

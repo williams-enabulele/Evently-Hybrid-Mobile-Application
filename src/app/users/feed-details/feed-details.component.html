@@ -1,0 +1,61 @@
+<ion-header translucent="true" (click)="dismiss()" class="ion-no-border">
+ 
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-align-self-end">{{data['title']}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" >
+  <div>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img  *ngIf=" null!==data['img_url']"  [src]="data['img_url']" style="width: 100%;">
+        </ion-img> 
+      </ion-col>
+    </ion-row>
+    <div  class="ion-padding">
+      <ion-row>
+        <ion-col size="12">
+          <h2 class="ion-text-uppercase">{{data['title']}}</h2> 
+        </ion-col>
+        <ion-col size="12">
+          <p>{{data['created_at'] | date: 'medium'}}</p>
+        </ion-col>
+      </ion-row>
+     <ion-row>
+       <ion-col size="12">
+        <p>
+          {{data['post']}}
+        </p>
+       </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col size="12">
+          <ion-button  fill="clear" (click)="commentsModal(data['id'])">
+            <ion-icon name="chatbox-outline" style="padding-right: 5px;"> </ion-icon> comments 0
+          </ion-button>
+       </ion-col>
+     </ion-row>
+    </div>
+ 
+  </div>
+   
+<div class="actions" [formGroup]="commentForm" *ngIf="data['allow_comments'] == 'true'" >
+
+  <ion-item>
+    <ion-textarea formControlName="comment"></ion-textarea>
+  </ion-item>
+  <div class="ion-padding">
+
+    <ion-button class="ion-padding"  expand="block"  color="primary" (click)="addComment()">
+      Comment
+    </ion-button>
+  </div>
+
+</div>
+
+</ion-content>

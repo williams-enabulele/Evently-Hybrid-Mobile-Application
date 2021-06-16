@@ -1,0 +1,63 @@
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-button routerLink="/chat">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>
+    Conversations
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content [fullscreen]=true>
+
+<div class="actions">
+  <ion-item class=" msgbubble" *ngFor="let msg of messages">
+    <span [ngClass]="userId == msg.sender? 'bubble me':'bubble you'">
+      <ion-item  lines="none"  class="item md item-lines-none ion-focusable item-label ">
+        <ion-label  class="sc-ion-label-md-h sc-ion-label-md-s md ">
+          <p class="text-size-xs">{{msg.created_at | date: 'medium' }}</p>
+        </ion-label>
+        <ion-button *ngIf="userId == msg.sender" fill="clear"  slot="end" class="md ion-activatable ion-focusable " (click)="presentActionSheet(msg.id)">
+          <ion-icon  class="icon-medium md" name="ellipsis-vertical-outline" ></ion-icon>
+        </ion-button>
+      </ion-item>
+      {{ msg.message}}</span>  
+  </ion-item>
+  <ion-item class=" msgbubble" *ngFor="let reply of replies">
+    <span [ngClass]="'bubble you'">{{ reply.message}}</span>  
+  </ion-item>
+</div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="height: auto;">
+    <ion-buttons slot="start">
+      <ion-button  icon-only (click)="showEmojiPicker = !showEmojiPicker" >
+        <ion-icon name="happy-outline" color="warning" zoom:2></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-textarea style="margin-bottom: 15px;" autoGrow rows="1" [(ngModel)]="message" [placeholder]="'Write your message ...'"></ion-textarea>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" shape="round">
+        <ion-icon  name="image-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" shape="round">
+        <ion-icon name="attach-outline" color="primary" zoom:3></ion-icon>
+      </ion-button >
+      <ion-button (click)="onMessage()" fill="clear" shape="round" [disabled]="!message">
+        <ion-icon name="send" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="emojiContainer" [style.height]="showEmojiPicker?'300px':'0px'"> 
+  <emoji-picker (onEmojiSelect)="addEmoji($event)"></emoji-picker>
+  </div>
+</ion-footer>

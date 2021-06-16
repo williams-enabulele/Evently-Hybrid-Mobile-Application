@@ -1,0 +1,74 @@
+
+
+ <ion-header>
+  <ion-toolbar>
+      <ion-title>Feeds</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+
+  <div class="centered" *ngIf="feeds.length === 0">
+    <ion-card-content>
+      <ion-img class="md" src="/assets/man-reading.png"></ion-img>
+      <ion-text color="primary" style="text-align: center;">
+        <h1>No records yet, Subscribe to a channel to see feeds</h1>
+      </ion-text>
+    </ion-card-content>
+  </div>
+  
+  <ion-card *ngFor="let feed of feeds" (click)="detailsModal(feed.broadcast_id)">
+    <br>
+      <ion-item>
+        <ngx-avatar slot="start" *ngIf="null == feed.img_url" class="img" name="{{feed.fullname}}"></ngx-avatar>
+        <ion-avatar slot="start" *ngIf=" null!==feed.img_url">
+          <img [src]="feed.img_url" />
+        </ion-avatar>
+          <ion-label>
+              <h3>{{ feed.fullname }}</h3>
+              <p>{{ feed.created_at | date: 'medium'}}</p>
+          </ion-label>
+      </ion-item>
+      <img class="preview-img" [src]="feed.img_url" *ngIf="feed.img_url">
+      <ion-card-content>
+          <p>{{ (feed.post |  slice:0:100)+' ...'}}</p>
+      </ion-card-content>
+   <br>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

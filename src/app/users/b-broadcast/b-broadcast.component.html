@@ -1,0 +1,36 @@
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="secondary" (click)="broadcastModal()">
+    <ion-icon color="light" name="add-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+
+
+<ion-content class="ion-padding">
+  <ion-list class="margin-bottom ion-no-padding" color="transparent" >
+    <ion-item *ngFor="let d of data"  class="ion-activatable">
+      <ngx-avatar slot="start" *ngIf="null == d.img_url" name="{{d.title}}"></ngx-avatar>
+      <ion-img slot="start" *ngIf="d.img_url!==null" src="{{d.img_url}}" style="width: 20%; border-radius: 40%;">
+      </ion-img>
+      <ion-label class="ion-text-wrap">
+        <ion-item  lines="none"  class="text-height item md item-lines-none ion-focusable item-label ">
+          <ion-label  class="sc-ion-label-md-h sc-ion-label-md-s md ">
+            <p  class="text-size-xs">{{d.created_at | date }}</p>
+          </ion-label>
+          <ion-button fill="clear"  slot="end" class="md ion-activatable ion-focusable " (click)="presentActionSheet(d.id)">
+            <ion-icon  class="icon-medium md" name="ellipsis-vertical-outline" ></ion-icon>
+          </ion-button>
+        </ion-item>
+        <h2 class="text-height">
+          <strong>{{ d.title }}</strong>
+        </h2>
+        <p class="text-height">{{ d.description}}</p>
+        <p class="text-height">{{ d.post}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+

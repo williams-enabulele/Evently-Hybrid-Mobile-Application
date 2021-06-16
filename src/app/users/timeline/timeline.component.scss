@@ -1,0 +1,73 @@
+/* .content {
+    background-color: #fafafa;
+}
+
+.tweet-info {
+    font-size: 0.9em;
+}
+
+.name {
+    font-weight: 600;
+}
+
+.handle {
+    padding-left: 4px;
+    color: var(--ion-color-medium);
+}
+
+.wrapper {
+    border-bottom: 1px solid var(--ion-color-light);
+}
+
+.highlight {
+    color: var(--ion-color-primary);
+}
+
+.preview-img {
+    border: 1px solid var(--ion-color-light);
+    border-radius: 10px;
+}
+
+ion-avatar{
+    border: 2px solid var(--ion-color-primary);
+    padding: 2px
+}
+
+ion-toolbar {
+    --border-style: none;
+}
+ion-header {
+    background: #fff;
+} */
+
+
+/* ion-content{
+    ion-card{
+        margin: 0;
+            ion-item:last-child{
+            --border-width: 0 0 0 0;
+        }
+        ion-card-header{
+            padding-bottom: 0;
+        }
+    }
+} */
+
+
+ion-card-content{
+    padding:0;   
+    
+    ion-col{
+      
+        &:first-child{
+            text-align: left;
+        }
+        &:last-child{
+            text-align: right;
+        }
+   }
+   ion-button{
+       margin-left: 0;
+       margin-right: 0;
+   }
+}

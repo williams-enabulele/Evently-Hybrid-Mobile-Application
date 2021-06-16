@@ -1,0 +1,56 @@
+<ion-header translucent="true">
+  <ion-toolbar (click)="dismiss()">
+    <ion-buttons  slot="start">
+      <ion-button >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Broadcast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]=true class="ion-padding">
+
+  <ion-text color="primary">
+    <h1 style="padding-left: 15px;" class="ion-text-left">Create Broadcast</h1>
+    <p  style="padding-left: 15px;" class="ion-text-left">Your subcribers get notifications<br> immediately after creation </p>
+  </ion-text>
+   
+    <div class="actions" [formGroup]="addBroadcast" >
+      <ion-item class="ion-text-center" lines="none">
+        <div >
+          <img src="../../../assets/img/place.jpg" *ngIf=!url style="border-radius: 10px;">
+          <img [src]="url" *ngIf=url style="border-radius: 10px;">
+        </div>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input type="text" formControlName="title" placeholder="Title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select  formControlName="channel_id" multiple="false" placeholder="Select Channel">
+          <ion-select-option value="{{item.id}}" *ngFor="let item of records">{{item.title}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-textarea  [attr.disabled]="words >100 ? '' : null" id="text" #text formControlName="post" placeholder=" Message"></ion-textarea>  
+      </ion-item>
+      <ion-item lines = "none">
+       <ion-button  expand="block" color="secondary" fill="clear">
+        <input type="file" id="actual" name="img"  hidden (change)="readUrl($event)">
+        <ion-icon name="arrow-up-outline"></ion-icon><label for="actual">Upload File</label>  
+       </ion-button>
+      </ion-item>
+      <ion-item lines = "none"> 
+        <ion-label>Allow Comments</ion-label>
+        <ion-toggle formControlName="comments" slot="start" color="primary"></ion-toggle>
+      </ion-item>
+      <br>
+      <div class="bottom-section">
+        <ion-button (click)="onSubmit()" [disabled]="addBroadcast.invalid" >Post</ion-button>
+      </div>
+    </div>
+  
+  </ion-content>
+ 
+  

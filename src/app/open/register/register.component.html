@@ -1,0 +1,103 @@
+
+
+<ion-content [fullscreen]=true class="ion-no-padding" [scrollY]="isAllowScroll" >
+  <div class="main-container" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')'}">
+    <div class="background-filter">
+     
+      <div class="actions" [formGroup]="register" >
+        <ion-item>
+          <!-- <ion-label position="floating" autofocus="true" clearInput="true">Fullname</ion-label> -->
+          <ion-input type="text" formControlName="fullname" placeholder="Fullname"></ion-input>
+          <!-- <ion-input type="hidden" formControlName="uniqno"></ion-input> -->
+        </ion-item>
+        <ion-item *ngIf="su.fullname.invalid && su.fullname.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please enter Fullname.
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-select  multiple="false" placeholder="Select Faculty" formControlName="faculty" >
+            <ion-select-option *ngFor="let f of faculty" value="{{f.id}}">{{f.name}}</ion-select-option> 
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="su.faculty.invalid && su.faculty.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please select Faculty.
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <!-- <ion-label position="floating">Department</ion-label> -->
+          <ion-select  multiple="false" placeholder="Select Department" formControlName="dept" >
+            <ion-select-option *ngFor="let d of department" value="{{d.id}}">{{d.name}}</ion-select-option> 
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="su.dept.invalid && su.dept.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please select Department.
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <!-- <ion-label position="floating">Department</ion-label> -->
+          <ion-select  multiple="false" placeholder="Select Level" formControlName="levels" >
+            <ion-select-option *ngFor="let l of levels" value="{{l.id}}">{{l.level}}</ion-select-option> 
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="su.levels.invalid && su.levels.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please select Levels.
+          </ion-text>
+        </ion-item>
+        <ion-item *ngIf="matric">
+            <!-- <ion-label position="floating">PostGrad Mat#</ion-label> -->
+          <ion-input type="text" formControlName="matric" placeholder="Post Grad Mat#"></ion-input><br>
+          <ion-button slot="end" clear (click)="show_staffid()" >Staff Member</ion-button>
+        </ion-item>
+        <ion-item *ngIf="su.matric.invalid && su.matric.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please enter Post Graduate Matriculation number.
+          </ion-text>
+        </ion-item>
+        <ion-item *ngIf="staffid">
+          <!-- <ion-label position="floating">Staff ID</ion-label> -->
+          <ion-input type="text" formControlName="staffid" placeholder="Staff ID"></ion-input>
+          <ion-button slot="end" clear (click)="show_undergrad()">Under Grad</ion-button> 
+        </ion-item>
+        <ion-item *ngIf="su.staffid.invalid && su.staffid.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please enter your staff ID to proceed.
+          </ion-text>
+        </ion-item>
+        <ion-item *ngIf="undergrad">
+          <!-- <ion-label position="floating">UnderGrad Mat#</ion-label> -->
+          <ion-input type="text" formControlName="undergrad" placeholder="Under Grad Mat#"></ion-input>
+          <ion-button slot="end" clear (click)="show_matric()">Post Grad</ion-button>
+        </ion-item>
+        <ion-item *ngIf="su.undergrad.invalid && su.undergrad.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Please enter your under graduate Matriculation number to proceed.
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <!-- <ion-label position="floating">Password</ion-label> -->
+          <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="su.password.invalid && su.password.touched" lines="none">
+          <ion-text color="danger" class="form-error">
+            Password must contain atleast one uppercase, lowercase letters and must be atleast 6 six characters.
+          </ion-text>
+        </ion-item><br>
+        <div class="bottom-section">
+          <ion-button class="signup-btn" (click)="onRegister()" [disabled]="register.invalid" expand="block">Register</ion-button>
+          <p class="login">Existing user? <a routerLink="/login">Login Now</a></p>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+
+
+
+

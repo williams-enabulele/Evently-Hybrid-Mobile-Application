@@ -1,0 +1,127 @@
+* {
+    font-weight: 300;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    // background: url('../../assets/unical-gate.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    background-position: 50%;
+    justify-content: center;
+}
+
+.background-filter {
+    height: 100%;
+    width: 100%;
+    background: rgba($color: #000000, $alpha: .8);
+    // background: linear-gradient(rgba(52,148,230,.7), rgba(236,110,173) );
+    display: flex;
+    justify-content: center;
+}
+
+
+.actions {
+    margin-top: 30px;
+
+    ion-item{
+        --ion-item-background:transparent;
+        --border-width:0;
+        --inner-border-width:0;
+        --highlight-color-focused:none;
+        --highlight-background: unset;
+        margin-bottom: 15px;
+
+        ion-input{
+            width:100%;
+            height: 45px;
+            //border-radius: 15px;
+            border:  1px solid #b3b3b3;
+            font-size: 14px;
+            font-weight: 300;
+            color:#f5f5f5;
+            --padding-start:30px;
+        }
+
+        ion-textarea {
+
+            width:100%;
+            height: 100px;
+            //border-radius: 15px;
+            border:  1px solid #b3b3b3;
+            font-size: 14px;
+            font-weight: 300;
+            color:#272727;
+            --padding-start:30px;
+        }
+
+        
+
+        ion-select{
+            width:100%;
+            height: 42px;
+            //border-radius: 15px;
+            border:  1px solid #b3b3b3;
+            font-size: 14px;
+            font-weight: 300;
+            color:#f5f5f5;
+            --padding-start:30px;
+            
+        }
+
+
+    }
+
+
+    a{
+        text-decoration: none;
+        color:#891ec7;
+        font-weight: 300;
+        font-size: 13px;
+    }
+}
+
+
+
+.bottom-section{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ion-button{
+    height: 53px;
+    width: 247px;
+    font-size: 14px;
+    text-transform: none;
+    --background:#3880ff;
+      font-weight: 400;
+    //--border-radius: 15px !important;
+      color:#fff;
+    }
+}
+
+ion-text {
+    position: absolute;
+    top:5%;
+
+    h1 {
+        font-size: 30px;
+        //color: rgb(226, 226, 226);
+    }
+    p {
+        font-size: 14px;
+        color: #52546b;    
+    }
+}
+
+  .actions {
+    position: absolute;
+    width: 90%;
+    bottom: 35px;
+} 
+
+
+
+

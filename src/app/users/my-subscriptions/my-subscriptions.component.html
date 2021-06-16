@@ -1,0 +1,41 @@
+<ion-header translucent="true" (click)="dismiss()" class="ion-no-border">
+ 
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-align-self-end" >Subscriptions</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen] = "true">
+
+  <ion-text *ngIf="datas === null" color="primary">
+    <h2 class="ion-text-center">You have not subscribed<br> to any channel yet</h2>
+  </ion-text>
+
+    <ion-text color="primary">
+      <h1 style="padding-left: 15px;" class="ion-text-left">My Subscriptions</h1>
+    </ion-text>
+    <ion-list class="margin-bottom ion-no-padding" color="transparent">
+      <ion-item *ngFor="let data of datas" class="ion-activatable"  id="{{data.id}}">
+        <div style="margin-right: 8px;">
+          <ngx-avatar class="img" name="{{data.title}}"></ngx-avatar>
+        </div>
+        <ion-label class="ion-text-wrap" >
+          <h2 class="text-height">
+            <strong><a >{{ data.title }}</a></strong>
+            <p class="ion-float-end">
+            <ion-button  expand="block"  (click)="unSubscribe(data.id)" color="danger" shape="round">
+              unsubscribe
+            </ion-button></p>
+          </h2>
+          <p class="text-height">{{ data.description }}</p>
+        </ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+    </ion-list>
+    
+
+</ion-content>

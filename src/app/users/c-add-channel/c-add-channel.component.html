@@ -1,0 +1,34 @@
+<ion-header translucent="true" (click)="dismiss()">
+  <ion-toolbar>
+    <ion-buttons class="ion-text-center">
+      <ion-button >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  <ion-content [fullscreen]=true class="ion-padding" [scrollY]="isAllowScroll" [scrollEvents]="isAllowScrollEvents"  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)" (ionScrollEnd)="logScrollEnd()">
+  <ion-text color="primary">
+    <h1 style="padding-left: 15px;" class="ion-text-left">Add Channel</h1>
+  </ion-text>
+  <ion-text color="primary">
+    <p  style="padding-left: 15px;" class="ion-text-left">Create channels and start broadcasting </p>
+  </ion-text>
+    <div class="actions" [formGroup]="addChannel" >
+      <ion-item>
+        <ion-input type="text" formControlName="title" placeholder="Title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea formControlName="description" placeholder="Description"></ion-textarea>
+      </ion-item>
+      <br>
+      <div class="bottom-section">
+        <ion-button class="signup-btn" (click)="onSubmit()"  expand="block">Add Channel</ion-button> 
+      </div>
+      
+    </div>
+  </ion-content>
+  
+  
+  

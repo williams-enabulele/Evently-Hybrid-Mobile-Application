@@ -1,0 +1,35 @@
+<ion-header translucent="true" (click)="dismiss()">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Channel</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content [fullscreen]=true class="ion-padding" [scrollY]="isAllowScroll" [scrollEvents]="isAllowScrollEvents"  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)" (ionScrollEnd)="logScrollEnd()">
+  <ion-text color="primary">
+    <h1 style="padding-left: 15px;" class="ion-text-left">Edit Channel</h1>
+    <p  style="padding-left: 15px;" class="ion-text-left">Easily edit channel details</p>
+  </ion-text>
+   
+    <div class="actions" [formGroup]="editChannel" >
+      <ion-item>
+        <ion-input type="text" formControlName="title" placeholder="Title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea formControlName="description" placeholder="Description"></ion-textarea>
+      </ion-item><br>
+      <div class="bottom-section">
+        <ion-button class="signup-btn" (click)="onSubmit()" [disabled]="editChannel.invalid" expand="block">Commit</ion-button>
+
+      </div>
+      
+     
+      
+    </div>
+  
+  </ion-content >
+

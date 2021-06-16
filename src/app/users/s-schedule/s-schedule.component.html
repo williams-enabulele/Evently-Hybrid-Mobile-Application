@@ -1,0 +1,51 @@
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="secondary" (click)="scheduleModal()">
+    <ion-icon color="light" name="add-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content [fullscreen]= true>
+
+  
+  <ion-text color="primary">
+    <h1 style="padding-left: 15px;" class="ion-text-left">My Schedules</h1>
+    <p  style="padding-left: 15px;" class="ion-text-left">List of scheduled broadcast </p>
+  </ion-text>
+
+  <div class="centered" *ngIf="data.length === 0">
+    <ion-card-content>
+      <ion-img class="md" src="/assets/man-reading.png"></ion-img>
+      <ion-text color="primary">
+        <h1>No records yet</h1>
+      </ion-text>
+    </ion-card-content>
+  </div>
+
+  <ion-list class="margin-bottom ion-no-padding " color="transparent">
+    <ion-item *ngFor="let d of data" class="ion-activatable">
+      <ngx-avatar slot="start" *ngIf="null == d.img_url" name="{{d.channel}}"></ngx-avatar>
+      <ion-img slot="start" *ngIf="null !== d.img_url" >
+        <img [src]="d.img_url"  class="ion-padding" style="width: 20%; border-radius: 40%;"/>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-img>
+      <ion-label class="ion-text-wrap">
+        <ion-item class="ion-no-padding"  lines="none"  class="item md item-lines-none ion-focusable item-label ">
+          <ion-label  class="sc-ion-label-md-h sc-ion-label-md-s md ">
+            <p  class="text-size-xs">{{d.created_at | date }}</p>
+          </ion-label>
+          <ion-button fill="clear"  slot="end" class="md ion-activatable ion-focusable " (click)="presentActionSheet(d.id)">
+            <ion-icon  class="icon-medium md" name="ellipsis-vertical-outline" ></ion-icon>
+          </ion-button>
+        </ion-item>
+        <h2 class="text-height">
+          <strong>{{ d.channel }}</strong>
+        </h2>
+        <p class="text-height">{{ d.description}}</p>
+        <p class="text-height">{{ d.post}}</p>
+      </ion-label>]
+       
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>

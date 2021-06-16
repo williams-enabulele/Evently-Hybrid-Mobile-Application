@@ -1,0 +1,50 @@
+<ion-header translucent="true" (click)="dismiss()" class="ion-no-border">
+ 
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-align-self-end">Chat list</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="action">
+    <ion-item [formGroup]="searchForm"> 
+      <ion-input type="search" placeholder="Start typing ..." formControlName="search" (keyup)="getPeopleList()"></ion-input>
+      <ion-button fill="clear">
+        <ion-icon slot="end"  name="search"></ion-icon>
+      </ion-button>
+    </ion-item>
+  <label class="ion-text-center">
+    <p>Search by names </p>
+  </label>
+  <ion-list class="margin-bottom ion-no-padding" color="transparent">
+    <ion-item *ngFor="let data of people" class="ion-activatable"  id="{{data.id}}">
+      <div style="margin-right: 8px;">
+        <ngx-avatar class="img" name="{{data.title}}"></ngx-avatar>
+      </div>
+      <ion-label class="ion-text-wrap" >
+        <h2 class="text-height" (click)="addRecent(data.id)" (click)="dismiss()" >
+          <strong><a >{{ data.fullname }}</a></strong>
+          <p class="ion-float-end">
+        </h2>
+        <p class="text-height">{{ data.username }}</p>
+        <ion-item-divider>
+        </ion-item-divider>
+        <ion-buttons class="ion-padding">
+          <ion-button>
+          <ion-icon name="person-outline"></ion-icon>
+          </ion-button>
+          <ion-label style="color: rgb(182, 182, 182);">{{data.fullname}}</ion-label>
+        </ion-buttons>
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-list>
+  
+  
+  </div>
+
+</ion-content>

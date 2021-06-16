@@ -1,0 +1,68 @@
+<ion-header translucent="true"  class="ion-no-border">
+ 
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-align-self-end">{{firstname}}'s Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]= true>
+  <ion-card-content>
+    <ion-item lines="none" class="item md item-lines-none ion-focusable item-label ">
+      <ngx-avatar slot="start" class="md"   name="{{ records['fullname'] }}"></ngx-avatar>
+      <ion-avatar  slot="start" class="md ">
+        <img *ngIf="null !== records['img_url']" src="{{ records['img_url'] }}"/>
+      </ion-avatar>
+      <ion-label class="sc-ion-label-md-h sc-ion-label-md-s md ">
+        <h1  class="text-size-xs">{{records["fullname"]}}</h1>
+        <h3>{{records['username']}}</h3>
+        <p  class="text-size-p ion-text-wrap">
+          {{records['bio']}}
+        </p>
+      </ion-label>
+    </ion-item>
+
+   <!--  <ion-row style="text-align: center;">
+      <ion-col class="ion-align-self-center">
+       <h1>{{ records["fullname"] }}</h1>
+       <p>{{ records["username"]}}</p>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row style="text-align: center;">
+      <ion-col class="ion-align-self-start">
+        <h2>Broadcast</h2>
+        <h1><b>{{counts['broadcast'] | number}}</b></h1>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <h2>Followers</h2>
+        <h1><b>{{counts['followers'] | number}}</b></h1>
+      </ion-col>
+      <ion-col class="ion-align-self-end">
+        <h2>Following</h2>
+        <h1><b>{{counts['following'] | number }}</b></h1>
+      </ion-col>
+    </ion-row><br>
+
+    
+  </ion-card-content>
+
+    <ion-title *ngIf="channels[0]['title']!==null">{{firstname}}'s Channels' </ion-title><br>
+
+      <ion-card class="ion-padding" *ngFor ="let channel of channels; let i = index">
+        <ion-card-header>
+          <ion-card-title>{{channel.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ channel.description}}
+        </ion-card-content>
+    
+         <!--  <ion-item>
+            <ion-label slot="start">Subscribers</ion-label>
+            <ion-badge slot="end">5</ion-badge>
+          </ion-item> -->
+      </ion-card>
+</ion-content>

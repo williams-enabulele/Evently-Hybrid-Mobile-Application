@@ -1,0 +1,38 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title>Edit Channel</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content [fullscreen]=true class="ion-padding" [scrollY]="isAllowScroll" [scrollEvents]="isAllowScrollEvents"  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)" (ionScrollEnd)="logScrollEnd()">
+    <ion-text >
+      <h1>Create Channel</h1>
+      <p>Starts broadcasting after <br>
+      creation!</p>
+    </ion-text>
+    <div class="actions" [formGroup]="editChannel" >
+      <ion-item>
+        <ion-label position="floating" autofocus="true" clearInput="true">Title</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" autofocus="true" clearInput="true">Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-button class="signup-btn" (click)="onSubmit()" [disabled]="editChannel.invalid" expand="block">Commit</ion-button>
+     
+      
+    </div>
+  
+  </ion-content >
+  <ion-footer (click)="dismiss()">
+    <ion-toolbar>
+      <ion-buttons class="ion-text-center">
+        <ion-button >
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+  
+

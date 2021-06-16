@@ -1,0 +1,94 @@
+
+<ion-header translucent="true"  class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-button expand="block" routerLink="/component-details">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+    <ion-button slot="end" fill="clear"  slot="end" class="md ion-activatable ion-focusable " (click)="presentActionSheet()">
+      <ion-icon  class="icon-medium md" name="ellipsis-vertical-outline" ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card  class="ion-text-center md">
+    <ion-item lines="none" class="item md item-lines-none ion-focusable item-label ">
+    <ngx-avatar slot="start" class="md"   name="{{ records['fullname'] }}"></ngx-avatar>
+    <ion-avatar  slot="start" class="md ">
+      <img *ngIf="null !== records['img_url']" src="{{ records['img_url'] }}"/>
+    </ion-avatar>
+    <ion-label class="sc-ion-label-md-h sc-ion-label-md-s md ">
+      <h1  class="text-size-xs">{{records["fullname"]}}</h1>
+      <h3>{{records['username']}}</h3>
+      <p  class="text-size-p ion-text-wrap">
+        {{records['bio']}}
+      </p>
+    </ion-label>
+    </ion-item>
+  <div  class="social-share">
+    <ion-item
+      
+      lines="none"
+      
+      class="item md item-lines-none ion-focusable item-label "
+      ><ion-label
+        
+        class="sc-ion-label-md-h sc-ion-label-md-s md "
+        ><span  class="span-small font-bold">{{ count["followers"] }}</span>
+        <div  class="clearfix"></div>
+        <h2  class="text-size-sm">
+          <a (click)="followersModal()">Followers</a>
+        </h2></ion-label
+      ></ion-item
+    ><ion-item
+      
+      lines="none"
+      
+      class="item md item-lines-none ion-focusable item-label "
+      ><ion-label
+        
+        class="ion-text-center sc-ion-label-md-h sc-ion-label-md-s md "
+        ><span  class="span-small font-bold">{{ count["following"] }}</span>
+        <div  class="clearfix"></div>
+        <h2  class="text-size-sm">
+          <a (click)="followingModal()">Following</a>
+        </h2></ion-label
+      ></ion-item
+    ><ion-item
+      
+      lines="none"
+      
+      class="item md item-lines-none ion-focusable item-label "
+      ><ion-label
+        
+        class="ion-text-center sc-ion-label-md-h sc-ion-label-md-s md "
+        ><span  class="span-small font-bold">{{ count["broadcast"] }}</span>
+        <div  class="clearfix"></div>
+        <h2  class="text-size-sm">Broadcast</h2></ion-label
+      ></ion-item
+    >
+  </div></ion-card
+>
+
+    <ion-list>
+      <ion-item lines="full">
+        <ion-label>Faculty</ion-label>
+        <ion-badge slot="end">{{ records['faculty'] }}</ion-badge>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Department</ion-label>
+        <ion-badge slot="end">{{ records['department'] }}</ion-badge>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Level</ion-label>
+        <ion-badge slot="end">{{ records['level'] }}</ion-badge>
+      </ion-item>
+     
+
+    </ion-list>
+</ion-content>
+
