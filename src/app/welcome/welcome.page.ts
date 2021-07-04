@@ -12,7 +12,7 @@ export class WelcomePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

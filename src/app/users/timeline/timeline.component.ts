@@ -40,7 +40,7 @@ export class TimelineComponent implements OnInit {
     const user = this.auth.decode();
     this.user = user.uid;
 
-    this.service.getSub(1).subscribe(
+    this.service.getSub(this.user).subscribe(
       data => {
 
         data.forEach(sub => {
@@ -90,8 +90,7 @@ export class TimelineComponent implements OnInit {
   getFeeds(isFirstLoad, event) {
 
     this.url = this.channel_id + '?page=' + this.page_number;
-    // this.url = '?page=' + this.page_number + '&_limit=' + this.page_limit;
-
+    
     this.service.getFeedsPaginate(this.url)
       .subscribe((data: any) => {
 

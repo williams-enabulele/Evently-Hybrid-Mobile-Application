@@ -1,3 +1,34 @@
-<p>
-  onboarding works!
-</p>
+<ion-content> 
+  <ion-slides pager="true">
+    <ion-slide value=1>
+      <div class="diag" >
+        <img src="assets/images/1.png">
+      </div>
+      <div>
+        <h2>Be Informed</h2>
+        <p>Get real time notifications of school events by those that matters most.</p>
+      </div>
+    </ion-slide >
+    <ion-slide value=2>
+      <div class="diag">
+        <img src="assets/images/2.png">
+      </div>
+      <div>
+        <h2>Create Unlimited Channels</h2>
+        <p>Connect with the university environment like never before</p>
+      </div>
+    </ion-slide>
+    <ion-slide value=3>
+      <div class="diag">
+        <img src="assets/images/3.png">
+      </div>
+      <div>
+        <h2>Keep Communication Private</h2>
+        <p>Privately message those that needs to be reached privately conveniently</p>
+      </div>
+      <button (click)="skip()" id="skip">"Alright I got it"</button>
+    </ion-slide>
+   
+  </ion-slides>
+
+</ion-content>

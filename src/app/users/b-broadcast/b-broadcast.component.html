@@ -4,14 +4,21 @@
   </ion-fab-button>
 </ion-fab>
 
-
-
-
 <ion-content class="ion-padding">
+ 
   <ion-list class="margin-bottom ion-no-padding" color="transparent" >
     <ion-item *ngFor="let d of data"  class="ion-activatable">
+
+      <div class="centered" *ngIf="d.length === 0">
+        <ion-card-content>
+          <ion-img class="md" src="/assets/man-reading.png"></ion-img>
+          <ion-text color="primary" style="text-align: center;">
+            <h3>No records yet, tap the  floating button to add post</h3>
+          </ion-text>
+        </ion-card-content>
+      </div>
       <ngx-avatar slot="start" *ngIf="null == d.img_url" name="{{d.title}}"></ngx-avatar>
-      <ion-img slot="start" *ngIf="d.img_url!==null" src="{{d.img_url}}" style="width: 20%; border-radius: 40%;">
+      <ion-img slot="start" *ngIf="d.img_url!=null" src="{{d.img_url}}" style="width: 20%; border-radius: 40%;">
       </ion-img>
       <ion-label class="ion-text-wrap">
         <ion-item  lines="none"  class="text-height item md item-lines-none ion-focusable item-label ">

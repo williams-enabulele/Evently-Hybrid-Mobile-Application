@@ -10,6 +10,8 @@ import { IonSegment, IonSlides } from '@ionic/angular';
 })
 export class BaseComponent implements OnInit {
 
+  segmentModel = "channels";
+
   @ViewChild('slider', { read: undefined, static: false }) slider: IonSlides;
   @ViewChild('segment', { read: undefined, static: false }) segment: IonSegment;
   slideOpts = {

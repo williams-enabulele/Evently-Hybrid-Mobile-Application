@@ -81,7 +81,7 @@ export class SubscribeComponent implements OnInit {
         device: user.device,
         uid: this.uid,
         channel_id: id
-      }
+      };
 
       // console.log(data);
       this.all.subscribe(data).subscribe(
@@ -89,15 +89,14 @@ export class SubscribeComponent implements OnInit {
          console.log(result);
          this.success();
        }
-     )
+     );
 
     }
 
     else {
 
     // Used the FCM Service to register the user's device token  
-    this.push.initPush();
-
+  
     const deviceToken = localStorage.getItem('device_token');
     const data  = {
       device: deviceToken,

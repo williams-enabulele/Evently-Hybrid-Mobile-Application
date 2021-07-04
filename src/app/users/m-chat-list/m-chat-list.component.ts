@@ -1,8 +1,6 @@
 import { PeopleComponent } from './../people/people.component';
 import { Component, OnInit } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
-import { map } from 'rxjs/operators';
-import { NavController, NavParams, ModalController } from '@ionic/angular';
+import {  NavParams, ModalController } from '@ionic/angular';
 import { AuthService } from '@app/_services/auth.service';
 import { AllService } from '@app/_services/all.service';
 import { Router } from '@angular/router';

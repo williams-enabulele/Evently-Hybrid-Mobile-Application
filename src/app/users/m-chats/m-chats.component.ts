@@ -1,10 +1,7 @@
 import { AuthService } from './../../_services/auth.service';
 import { Component, OnInit} from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { ActionSheetController, ModalController, ToastController } from '@ionic/angular';
-// import { Observable} from 'rxjs';
-import {Ionic4EmojiPickerComponent} from 'ionic4-emoji-picker'; 
-// import { Socket } from 'ngx-socket-io';
+import { Ionic4EmojiPickerComponent } from 'ionic4-emoji-picker';
 import { NavController, NavParams  } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { AllService } from '@app/_services/all.service';

@@ -38,19 +38,19 @@ const routes: Routes = [
         component: MChatListComponent
       },
       {
-        path: "chats/:id",
+        path: 'chats/:id',
         component: MChatsComponent
       },
       {
-        path: "feed/:id",
+        path: 'feed/:id',
         component: FeedDetailsComponent
       },
       {
-        path: "profile-public/:id",
+        path: 'profile-public/:id',
         component: PublicProfileComponent
       },
       {
-        path: "subscriptions",
+        path: 'subscriptions',
         component: MySubscriptionsComponent
       }
 

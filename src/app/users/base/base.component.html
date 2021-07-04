@@ -16,34 +16,25 @@
     <ion-segment
       #segment
       value="ion-sb-1"
-      mode="md"
+      mode="md"  [(ngModel)]="segmentModel" 
       (ionChange)="segmentChanged($event)">
-      <ion-segment-button>
+      <ion-segment-button value="broadcast">
         <ion-label>Broadcast</ion-label>
       </ion-segment-button>
-      <ion-segment-button>
+      <ion-segment-button value="channels">
         <ion-label>Channels</ion-label>
       </ion-segment-button>
-      <ion-segment-button>
+      <ion-segment-button value ="schedule">
         <ion-label>Schedule</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-slides
-    #slider
-    pager="false"
-    (ionSlideWillChange)="slideChanged()"
-    [options]="slideOpts">
-    <ion-slide>
-      <app-b-broadcast></app-b-broadcast>
-    </ion-slide>
-    <ion-slide>
-      <app-c-channels></app-c-channels>
-    </ion-slide>
-    <ion-slide>
-      <app-s-schedule></app-s-schedule>
-    </ion-slide>
-  </ion-slides>
+      <app-b-broadcast *ngIf= "segmentModel === 'broadcast'"></app-b-broadcast>
+   
+      <app-c-channels *ngIf = "segmentModel === 'channels'"></app-c-channels>
+   
+      <app-s-schedule *ngIf = "segmentModel === 'schedule'"></app-s-schedule>
+  
 </ion-content>

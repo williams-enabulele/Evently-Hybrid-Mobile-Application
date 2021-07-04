@@ -32,8 +32,6 @@ import { AvatarModule } from 'ngx-avatar';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +71,7 @@ import { AvatarModule } from 'ngx-avatar';
 
   ],
   providers: [
-  
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS, useClass: TokeninterceptorService, multi: true

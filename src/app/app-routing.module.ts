@@ -1,3 +1,4 @@
+import { WelcomeComponent } from './open/welcome/welcome.component';
 import { ForgotComponent } from './open/forgot/forgot.component';
 import { OnboardingComponent } from './open/onboarding/onboarding.component';
 import { LoginComponent } from './open/login/login.component';
@@ -14,14 +15,12 @@ const routes: Routes = [
     path: '',
     component: FrontComponent,
     children: [
-    { path: '', redirectTo: '/', pathMatch: 'full' },
-    { path: '', component: OnboardingComponent },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: 'login', component: LoginComponent },
+    { path: 'onboarding', component: OnboardingComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'reset', component: ResetComponent },
-    { path: 'login', component: LoginComponent },
     { path: 'forgot', component: ForgotComponent}
-
-
     ]
   },
 

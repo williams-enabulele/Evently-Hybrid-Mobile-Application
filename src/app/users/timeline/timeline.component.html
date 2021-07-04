@@ -14,7 +14,7 @@
     <ion-card-content>
       <ion-img class="md" src="/assets/man-reading.png"></ion-img>
       <ion-text color="primary" style="text-align: center;">
-        <h1>No records yet, Subscribe to a channel to see feeds</h1>
+        <h2>No records yet, Subscribe to a channel to see feeds</h2>
       </ion-text>
     </ion-card-content>
   </div>
@@ -23,8 +23,8 @@
     <br>
       <ion-item>
         <ngx-avatar slot="start" *ngIf="null == feed.img_url" class="img" name="{{feed.fullname}}"></ngx-avatar>
-        <ion-avatar slot="start" *ngIf=" null!==feed.img_url">
-          <img [src]="feed.img_url" />
+        <ion-avatar slot="start" *ngIf=" null!== feed.img_url">
+          <img [src]="feed.img_url"/>
         </ion-avatar>
           <ion-label>
               <h3>{{ feed.fullname }}</h3>

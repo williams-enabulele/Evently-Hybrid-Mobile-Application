@@ -1,13 +1,17 @@
 {
   "appId": "com.ebele.masters",
-  "appName": "evently",
+  "appName": "Ebele",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
+
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchScreen":0,
+      "launchAutoHide": true,
+      "backgroundColor": "#fff"
     },
+    
     "PushNotifications": {
       "presentationOptions": [
         "badge",
